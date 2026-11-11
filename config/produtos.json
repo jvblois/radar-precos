@@ -1,0 +1,102 @@
+{
+  "_como_usar": "Cada produto tem um id fixo e, por loja, o código ou link da página. Loja sem código fica de fora da coleta. 'min_preco' evita confundir o console com acessórios na busca do Mercado Livre.",
+  "produtos": [
+    {
+      "id": "ps5-slim-digital",
+      "nome": "PS5 Slim Digital",
+      "categoria": "Console",
+      "plataforma": "PS5",
+      "lojas": {
+        "kabum": {"codigo": "904276"},
+        "mercadolivre": {"busca": "console playstation 5 slim digital", "deve_conter": ["playstation", "5", "digital"], "nao_pode_conter": ["capa", "suporte", "controle avulso", "usado"], "min_preco": 2500}
+      }
+    },
+    {
+      "id": "ps5-digital-825-astro-gt7",
+      "nome": "PS5 Digital 825GB + Astro Bot e GT7",
+      "categoria": "Console",
+      "plataforma": "PS5",
+      "lojas": {
+        "kabum": {"codigo": "922662"}
+      }
+    },
+    {
+      "id": "ps5-slim-disco",
+      "nome": "PS5 Slim com disco 1TB",
+      "categoria": "Console",
+      "plataforma": "PS5",
+      "lojas": {
+        "kabum": {"codigo": "875817"},
+        "mercadolivre": {"busca": "console playstation 5 slim disco 1tb", "deve_conter": ["playstation", "5"], "nao_pode_conter": ["digital", "capa", "suporte", "usado", "leitor de disco avulso"], "min_preco": 3000}
+      }
+    },
+    {
+      "id": "ps5-disco-astro-gt7",
+      "nome": "PS5 com disco 1TB + Astro Bot e GT7",
+      "categoria": "Console",
+      "plataforma": "PS5",
+      "lojas": {
+        "kabum": {"codigo": "934759"}
+      }
+    },
+    {
+      "id": "ps5-pro",
+      "nome": "PS5 Pro 2TB",
+      "categoria": "Console",
+      "plataforma": "PS5",
+      "lojas": {
+        "kabum": {"codigo": "636960"},
+        "mercadolivre": {"busca": "console playstation 5 pro 2tb", "deve_conter": ["pro"], "nao_pode_conter": ["capa", "suporte", "usado", "controle"], "min_preco": 5000}
+      }
+    },
+    {
+      "id": "xbox-series-s",
+      "nome": "Xbox Series S",
+      "categoria": "Console",
+      "plataforma": "Xbox",
+      "lojas": {
+        "kabum": {"codigo": "531252"},
+        "mercadolivre": {"busca": "console xbox series s", "deve_conter": ["series s"], "nao_pode_conter": ["capa", "suporte", "usado", "controle"], "min_preco": 1800}
+      }
+    },
+    {
+      "id": "xbox-series-x",
+      "nome": "Xbox Series X",
+      "categoria": "Console",
+      "plataforma": "Xbox",
+      "lojas": {
+        "kabum": {"codigo": "209239"},
+        "mercadolivre": {"busca": "console xbox series x 1tb", "deve_conter": ["series x"], "nao_pode_conter": ["capa", "suporte", "usado", "controle"], "min_preco": 3000}
+      }
+    },
+    {
+      "id": "gta6-ps5-standard",
+      "nome": "GTA 6 Standard PS5",
+      "categoria": "Jogo",
+      "plataforma": "PS5",
+      "lojas": {
+        "mercadolivre": {"busca": "grand theft auto vi ps5", "deve_conter": ["vi", "ps5"], "nao_pode_conter": ["ultimate", "camiseta", "poster", "mapa", "guia"], "min_preco": 300}
+      }
+    },
+    {
+      "id": "dualsense",
+      "nome": "Controle DualSense",
+      "categoria": "Acessório",
+      "plataforma": "PS5",
+      "lojas": {
+        "kabum": {"codigo": "945713"},
+        "mercadolivre": {"busca": "controle dualsense ps5 sony original", "deve_conter": ["dualsense"], "nao_pode_conter": ["edge", "capa", "case", "carregador", "usado", "skin"], "min_preco": 250}
+      }
+    },
+    {
+      "id": "pulse-elite",
+      "nome": "Headset Pulse Elite",
+      "categoria": "Acessório",
+      "plataforma": "PS5",
+      "lojas": {
+        "kabum": {"codigo": "536999"},
+        "mercadolivre": {"busca": "headset sony pulse elite", "deve_conter": ["pulse elite"], "nao_pode_conter": ["capa", "suporte", "usado"], "min_preco": 500}
+      }
+    }
+  ]
+}
