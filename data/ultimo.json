@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-11 00:34",
+ "atualizado_em": "2026-11-11 00:36",
  "linhas": [
   {
    "url": "https://www.kabum.com.br/produto/904276",
@@ -12,7 +12,7 @@
    "disponivel": "nao",
    "status": "esgotado",
    "tipo_oferta": "loja",
-   "data_hora": "2026-11-11 00:34",
+   "data_hora": "2026-11-11 00:36",
    "produto_id": "ps5-slim-digital",
    "produto": "PS5 Slim Digital",
    "loja": "kabum"
@@ -28,7 +28,7 @@
    "disponivel": "nao",
    "status": "esgotado",
    "tipo_oferta": "loja",
-   "data_hora": "2026-11-11 00:34",
+   "data_hora": "2026-11-11 00:36",
    "produto_id": "ps5-digital-825-astro-gt7",
    "produto": "PS5 Digital 825GB + Astro Bot e GT7",
    "loja": "kabum"
@@ -44,7 +44,7 @@
    "disponivel": "nao",
    "status": "esgotado",
    "tipo_oferta": "loja",
-   "data_hora": "2026-11-11 00:34",
+   "data_hora": "2026-11-11 00:36",
    "produto_id": "ps5-slim-disco",
    "produto": "PS5 Slim com disco 1TB",
    "loja": "kabum"
@@ -60,7 +60,7 @@
    "disponivel": "sim",
    "status": "ok",
    "tipo_oferta": "loja",
-   "data_hora": "2026-11-11 00:34",
+   "data_hora": "2026-11-11 00:36",
    "produto_id": "ps5-disco-astro-gt7",
    "produto": "PS5 com disco 1TB + Astro Bot e GT7",
    "loja": "kabum"
@@ -76,7 +76,7 @@
    "disponivel": "sim",
    "status": "ok",
    "tipo_oferta": "loja",
-   "data_hora": "2026-11-11 00:34",
+   "data_hora": "2026-11-11 00:36",
    "produto_id": "ps5-pro",
    "produto": "PS5 Pro 2TB",
    "loja": "kabum"
@@ -86,13 +86,13 @@
    "fonte": "kabum-pagina",
    "titulo_encontrado": "Console Xbox One Series S 1Tb - Preto",
    "vendedor": "VIIA SOLUTIONS",
-   "preco_de": 0.0,
+   "preco_de": null,
    "preco_pix": 4799.99,
    "preco_cheio": 4799.99,
    "disponivel": "nao",
    "status": "esgotado",
    "tipo_oferta": "loja",
-   "data_hora": "2026-11-11 00:34",
+   "data_hora": "2026-11-11 00:36",
    "produto_id": "xbox-series-s",
    "produto": "Xbox Series S",
    "loja": "kabum"
@@ -102,13 +102,13 @@
    "fonte": "kabum-pagina",
    "titulo_encontrado": "Console Xbox Series X, Microsoft, 1Tb, Controle Sem Fio - Preto",
    "vendedor": "VIIA SOLUTIONS",
-   "preco_de": 0.0,
+   "preco_de": null,
    "preco_pix": 7499.99,
    "preco_cheio": 7499.99,
    "disponivel": "nao",
    "status": "esgotado",
    "tipo_oferta": "loja",
-   "data_hora": "2026-11-11 00:34",
+   "data_hora": "2026-11-11 00:36",
    "produto_id": "xbox-series-x",
    "produto": "Xbox Series X",
    "loja": "kabum"
@@ -118,13 +118,13 @@
    "fonte": "kabum-pagina",
    "titulo_encontrado": "Controle Sony DualSense PS5, Sem Fio, Midnight Black",
    "vendedor": "KaBuM!",
-   "preco_de": 0.0,
+   "preco_de": null,
    "preco_pix": 429.9,
    "preco_cheio": 488.52,
    "disponivel": "nao",
    "status": "esgotado",
    "tipo_oferta": "loja",
-   "data_hora": "2026-11-11 00:34",
+   "data_hora": "2026-11-11 00:36",
    "produto_id": "dualsense",
    "produto": "Controle DualSense",
    "loja": "kabum"
@@ -140,7 +140,7 @@
    "disponivel": "sim",
    "status": "ok",
    "tipo_oferta": "loja",
-   "data_hora": "2026-11-11 00:34",
+   "data_hora": "2026-11-11 00:36",
    "produto_id": "pulse-elite",
    "produto": "Headset Pulse Elite",
    "loja": "kabum"
