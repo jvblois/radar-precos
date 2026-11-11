@@ -143,6 +143,11 @@ def coletar_kabum(cfg):
         try:
             dados = json.loads(m.group(1))
             bloco = procurar_chave(dados, ["priceWithDiscount"])
+            if bloco and os.environ.get("RADAR_DEBUG"):
+                os.makedirs(os.path.join(RAIZ, "data", "debug"), exist_ok=True)
+                resumo = {k: v for k, v in bloco.items() if not isinstance(v, (dict, list)) or k.lower().find("price") >= 0 or k.lower().find("prime") >= 0}
+                with open(os.path.join(RAIZ, "data", "debug", f"kabum_{cfg['codigo']}.json"), "w", encoding="utf-8") as fdbg:
+                    json.dump(resumo, fdbg, ensure_ascii=False, indent=1, default=str)
             if bloco:
                 pix = brl(bloco.get("priceWithDiscount"))
                 cheio = brl(bloco.get("price") or bloco.get("oldPrice"))
