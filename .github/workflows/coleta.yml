@@ -33,8 +33,6 @@ jobs:
 
       - name: Coletar preços
         run: python coletor/coletar.py
-        env:
-          RADAR_DEBUG: "1"
 
       - name: Salvar dados no repositório
         run: |

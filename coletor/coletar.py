@@ -26,7 +26,7 @@ ULTIMO_PATH = os.path.join(RAIZ, "data", "ultimo.json")
 
 CAMPOS = [
     "data_hora", "produto_id", "produto", "loja", "preco_pix", "preco_cheio",
-    "disponivel", "vendedor", "titulo_encontrado", "url", "status", "fonte", "tipo_oferta",
+    "disponivel", "vendedor", "titulo_encontrado", "url", "status", "fonte", "tipo_oferta", "preco_de",
 ]
 
 HEADERS = {
@@ -143,13 +143,9 @@ def coletar_kabum(cfg):
         try:
             dados = json.loads(m.group(1))
             bloco = procurar_chave(dados, ["priceWithDiscount"])
-            if bloco and os.environ.get("RADAR_DEBUG"):
-                os.makedirs(os.path.join(RAIZ, "data", "debug"), exist_ok=True)
-                resumo = {k: v for k, v in bloco.items() if not isinstance(v, (dict, list)) or k.lower().find("price") >= 0 or k.lower().find("prime") >= 0}
-                with open(os.path.join(RAIZ, "data", "debug", f"kabum_{cfg['codigo']}.json"), "w", encoding="utf-8") as fdbg:
-                    json.dump(resumo, fdbg, ensure_ascii=False, indent=1, default=str)
             if bloco:
                 pix = brl(bloco.get("priceWithDiscount"))
+                linha["preco_de"] = brl(bloco.get("oldPrice"))
                 cheio = brl(bloco.get("price") or bloco.get("oldPrice"))
                 if "available" in bloco and isinstance(bloco["available"], bool):
                     esgotado = esgotado or not bloco["available"]
@@ -288,6 +284,16 @@ COLETORES = {
 }
 
 
+def lojas_desligadas():
+    """Lojas que ainda não liberaram acesso ao robô. Ligam quando a credencial existir."""
+    desligadas = set()
+    if not os.environ.get("ML_ACCESS_TOKEN"):
+        desligadas.add("mercadolivre")  # busca da API exige app de desenvolvedor desde 2025
+    if not os.environ.get("MAGALU_ATIVO"):
+        desligadas.add("magalu")  # bloqueia acessos vindos dos servidores do GitHub
+    return desligadas
+
+
 def main():
     with open(CONFIG, encoding="utf-8") as f:
         produtos = json.load(f)["produtos"]
@@ -297,7 +303,7 @@ def main():
     for p in produtos:
         for loja, cfg in p.get("lojas", {}).items():
             coletor = COLETORES.get(loja)
-            if not coletor:
+            if not coletor or loja in lojas_desligadas():
                 continue
             try:
                 r = coletor(cfg)
