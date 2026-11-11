@@ -145,7 +145,7 @@ def coletar_kabum(cfg):
             bloco = procurar_chave(dados, ["priceWithDiscount"])
             if bloco:
                 pix = brl(bloco.get("priceWithDiscount"))
-                linha["preco_de"] = brl(bloco.get("oldPrice"))
+                linha["preco_de"] = brl(bloco.get("oldPrice")) or None
                 cheio = brl(bloco.get("price") or bloco.get("oldPrice"))
                 if "available" in bloco and isinstance(bloco["available"], bool):
                     esgotado = esgotado or not bloco["available"]

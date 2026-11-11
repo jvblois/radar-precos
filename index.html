@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar do Console: histórico de preços de PS5, Xbox e GTA 6</title>
+<meta name="description" content="Veja o histórico de preço de PS5, Xbox, GTA 6 e acessórios nas maiores lojas do Brasil e descubra se o desconto da Black Friday é real.">
+<meta property="og:title" content="Radar do Console: o desconto é real?">
+<meta property="og:description" content="Histórico de preços de consoles, GTA 6 e acessórios, atualizado duas vezes por dia.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2713%27 fill=%27none%27 stroke=%27%23FF4F8B%27 stroke-width=%273%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E1117;--card:#161B24;--line:#262D3A;--line2:#333C4D;--tx:#F2F4F7;--mut:#A3ACBA;--acc:#FF4F8B;--ok:#4ADE9B;--okbg:#0F3324;--warn:#FFC864;--warnbg:#3A2A10;--bad:#FF8A8A;--badbg:#3A1616}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--tx);font-family:Inter,system-ui,sans-serif}
+a{color:#FF7AA8}
+.app{display:grid;grid-template-rows:auto 1fr auto;height:100vh}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 24px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:var(--tx);text-decoration:none}
+nav{display:flex;gap:20px;align-items:center;font-size:14px}
+nav a{color:var(--tx);text-decoration:none}
+.upd{color:var(--mut);font-size:13px}
+main{display:grid;grid-template-columns:340px 1fr;gap:20px;padding:20px 24px;min-height:0}
+.side{display:flex;flex-direction:column;gap:12px;min-height:0}
+.search{width:100%;background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:12px 14px;color:var(--tx);font:inherit;font-size:15px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{background:transparent;border:1px solid var(--line2);color:var(--mut);border-radius:999px;padding:7px 12px;font:inherit;font-size:13px;cursor:pointer}
+.tab[aria-pressed=true]{background:var(--tx);color:var(--bg);border-color:var(--tx);font-weight:600}
+.list{display:flex;flex-direction:column;gap:6px;overflow:auto;min-height:0;padding-right:4px}
+.item{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;width:100%;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 12px;color:var(--tx);font:inherit;cursor:pointer}
+.item[aria-current=true]{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc) inset}
+.item .n{font-size:14px;font-weight:500;line-height:1.25}
+.item .c{font-size:12px;color:var(--mut)}
+.item .p{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;display:grid;grid-template-rows:auto auto 1fr auto;gap:14px;min-height:0}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.kicker{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+h1{margin:4px 0 0;font-family:'Space Grotesk',sans-serif;font-size:28px;line-height:1.1}
+.price{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:44px;line-height:1;font-variant-numeric:tabular-nums}
+.where{font-size:14px;color:var(--mut);margin-top:6px}
+.pill{display:inline-block;font-size:13px;font-weight:600;padding:6px 10px;border-radius:999px;white-space:nowrap}
+.pill.ok{background:var(--okbg);color:var(--ok)}.pill.warn{background:var(--warnbg);color:var(--warn)}.pill.bad{background:var(--badbg);color:var(--bad)}.pill.neu{background:#1F2633;color:var(--mut)}
+.facts{display:flex;gap:10px;flex-wrap:wrap}
+.fact{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13px;color:#C9D0DB;max-width:420px}
+.fact b{color:var(--tx)}
+.chart{min-height:0;display:flex;flex-direction:column;gap:6px}
+#cg{flex:1;min-height:150px;position:relative}#cg svg{position:absolute;inset:0;width:100%;height:100%}
+.bottom{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end}
+.stores{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.store{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--mut)}
+.store b{color:var(--tx);font-size:15px;font-variant-numeric:tabular-nums}
+.store a{font-size:13px;font-weight:600;text-decoration:none}
+.actions{display:flex;flex-direction:column;gap:8px}
+.btn{display:inline-block;text-align:center;background:var(--acc);color:var(--bg);font-weight:600;font-size:15px;padding:12px 18px;border-radius:10px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn.ghost{background:transparent;color:var(--tx);border:1px solid var(--line2)}
+footer{padding:8px 24px;border-top:1px solid var(--line);font-size:12px;color:var(--mut)}
+.alert{display:none;gap:8px;align-items:center}
+.alert.on{display:flex}
+.alert input{background:var(--bg);border:1px solid var(--line2);border-radius:10px;padding:11px;color:var(--tx);font:inherit;width:220px}
+@media (max-width:900px){
+ .app{height:auto;min-height:100vh}
+ main{grid-template-columns:minmax(0,1fr);padding:14px}
+ .side,.panel{min-width:0}
+ #cg{flex:none;height:220px}
+ .panel{grid-template-rows:auto}
+ .list{flex-direction:row;overflow-x:auto}
+ .item{min-width:220px}
+ .price{font-size:36px}
+ .stores{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .bottom{grid-template-columns:1fr}
+ nav .hide-m{display:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+ <a class="brand" href="./"><svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="#FF4F8B" stroke-width="2.5"/><circle cx="16" cy="16" r="6" fill="none" stroke="#FF4F8B" stroke-width="2.5"/><line x1="16" y1="16" x2="26" y2="8" stroke="#F2F4F7" stroke-width="2.5" stroke-linecap="round"/></svg>Radar do Console</a>
+ <nav aria-label="Seções">
+  <a href="#" class="hide-m">Black Fraude: como identificar</a>
+  <a href="#" class="hide-m">Alertas</a>
+  <span class="upd" id="upd">carregando…</span>
+ </nav>
+</header>
+<main>
+ <section class="side" aria-label="Produtos">
+  <label for="q" style="position:absolute;left:-9999px">Buscar produto</label>
+  <input id="q" class="search" type="search" placeholder="Buscar: PS5, GTA 6, controle…" autocomplete="off">
+  <div class="tabs" role="group" aria-label="Categorias" id="tabs"></div>
+  <div class="list" id="list"></div>
+ </section>
+ <section class="panel" id="panel" aria-live="polite"></section>
+</main>
+<footer>Alguns links são de afiliado: podemos ganhar uma comissão, sem custo extra pra você. Preços coletados duas vezes por dia; confira sempre na loja antes de comprar.</footer>
+</div>
+<script id="snapshot" type="application/json">null</script>
+<script>
+const LOJAS=[{id:'kabum',nome:'KaBuM'},{id:'mercadolivre',nome:'Mercado Livre'},{id:'magalu',nome:'Magalu'},{id:'amazon',nome:'Amazon'}];
+const COR={kabum:'#FF4F8B',mercadolivre:'#FFE14D',magalu:'#4DA3FF',amazon:'#FFA24D'};
+const brl=v=>v==null||isNaN(v)?'-':'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const st={produtos:[],linhas:[],cat:'Todos',q:'',sel:null};
+
+function parseCSV(t){const out=[];let row=[],f='',q=false;for(let i=0;i<t.length;i++){const c=t[i];if(q){if(c=='"'&&t[i+1]=='"'){f+='"';i++}else if(c=='"')q=false;else f+=c}else if(c=='"')q=true;else if(c==','){row.push(f);f=''}else if(c=='\n'){row.push(f);out.push(row);row=[];f=''}else if(c!='\r')f+=c}if(f||row.length){row.push(f);out.push(row)}const h=out.shift();return out.filter(r=>r.length>1).map(r=>Object.fromEntries(h.map((k,i)=>[k,r[i]??''])))}
+
+async function carregar(){
+ try{
+  const [csv,cfg]=await Promise.all([fetch('data/precos.csv',{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.text()}),fetch('config/produtos.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json()})]);
+  st.linhas=parseCSV(csv);st.produtos=cfg.produtos;
+ }catch(e){const s=JSON.parse(document.getElementById('snapshot').textContent||'null');if(!s){document.getElementById('panel').textContent='Não foi possível carregar os preços agora.';return}st.linhas=s.linhas;st.produtos=s.produtos}
+ st.linhas.forEach(l=>{l.pix=l.preco_pix?parseFloat(l.preco_pix):null;l.de=l.preco_de?parseFloat(l.preco_de):null;l.t=new Date(l.data_hora.replace(' ','T')+':00-03:00')});
+ const ult=st.linhas.reduce((a,l)=>l.t>a?l.t:a,new Date(0));
+ document.getElementById('upd').textContent='Atualizado '+ult.toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+ const cats=['Todos',...new Set(st.produtos.map(p=>p.categoria))];
+ document.getElementById('tabs').innerHTML=cats.map(c=>`<button class="tab" type="button" data-c="${c}" aria-pressed="${c===st.cat}">${c==='Todos'?'Todos':c+'s'}</button>`).join('');
+ document.getElementById('tabs').onclick=e=>{const b=e.target.closest('.tab');if(!b)return;st.cat=b.dataset.c;document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-pressed',x===b));lista()};
+ document.getElementById('q').oninput=e=>{st.q=e.target.value.toLowerCase();lista()};
+ st.sel=(location.hash.slice(1))||st.produtos[0].id;
+ lista();painel();
+}
+
+function resumo(id){
+ const ls=st.linhas.filter(l=>l.produto_id===id&&(l.tipo_oferta||'loja')==='loja');
+ if(!ls.length)return null;
+ const ultT=ls.reduce((a,l)=>l.t>a?l.t:a,new Date(0));
+ const agora={};LOJAS.forEach(L=>{const x=ls.filter(l=>l.loja===L.id).sort((a,b)=>b.t-a.t)[0];if(x)agora[L.id]=x});
+ const disp=Object.values(agora).filter(x=>x.disponivel==='sim'&&x.pix);
+ const melhor=disp.sort((a,b)=>a.pix-b.pix)[0]||null;
+ const comPreco=ls.filter(l=>l.pix&&l.disponivel==='sim');
+ const minHist=comPreco.length?Math.min(...comPreco.map(l=>l.pix)):null;
+ const maxHist=comPreco.length?Math.max(...comPreco.map(l=>l.pix)):null;
+ const ultimoVisto=Object.values(agora).filter(x=>x.pix).sort((a,b)=>a.pix-b.pix)[0]||null;
+ const ini=ls.reduce((a,l)=>l.t<a?l.t:a,new Date(8.64e15));
+ return {ls,agora,melhor,minHist,maxHist,ultimoVisto,ini,ultT};
+}
+
+function selo(r){
+ if(!r)return{c:'neu',t:'Sem dados ainda'};
+ if(!r.melhor)return{c:'bad',t:'Esgotado nas lojas monitoradas'};
+ const dias=(r.ultT-r.ini)/864e5;
+ if(r.minHist&&r.melhor.pix<=r.minHist*1.005&&r.comMais!==false){return dias<7?{c:'ok',t:'Menor preço desde '+r.ini.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'})}:{c:'ok',t:'Menor preço registrado'}}
+ if(r.melhor.pix>r.minHist*1.03)return{c:'warn',t:'Acima do menor preço visto: espere'};
+ return{c:'neu',t:'Perto do menor preço visto'};
+}
+
+function lista(){
+ const el=document.getElementById('list');
+ const ps=st.produtos.filter(p=>(st.cat==='Todos'||p.categoria===st.cat)&&p.nome.toLowerCase().includes(st.q));
+ el.innerHTML=ps.map(p=>{const r=resumo(p.id);const v=r&&r.melhor?brl(r.melhor.pix):(r&&r.ultimoVisto?'esgotado':'-');return `<button class="item" type="button" data-id="${p.id}" aria-current="${p.id===st.sel}"><span><span class="n">${p.nome}</span><br><span class="c">${p.categoria} · ${p.plataforma}</span></span><span class="p">${v}</span></button>`}).join('')||'<p class="upd">Nada encontrado.</p>';
+ const cur=el.querySelector('[aria-current=true]');if(cur&&window.innerWidth<900)cur.scrollIntoView({block:'nearest',inline:'center'});
+ el.onclick=e=>{const b=e.target.closest('.item');if(!b)return;st.sel=b.dataset.id;history.replaceState(null,'','#'+st.sel);lista();painel()};
+}
+
+function grafico(r,W,H){
+ W=Math.max(W||760,280);H=Math.max(H||220,150);const P={l:64,r:16,t:16,b:28};
+ const pts=r.ls.filter(l=>l.pix);
+ if(pts.length<2)return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Histórico ainda curto"><text x="${W/2}" y="${H/2}" fill="#A3ACBA" font-size="14" text-anchor="middle" font-family="Inter">O gráfico aparece a partir da segunda coleta.</text></svg>`;
+ const t0=Math.min(...pts.map(p=>+p.t)),t1=Math.max(...pts.map(p=>+p.t));
+ const vs=pts.map(p=>p.pix).concat(pts.filter(p=>p.de).map(p=>p.de));
+ let y0=Math.min(...vs),y1=Math.max(...vs);const pad=(y1-y0||y0*0.05)*0.15;y0-=pad;y1+=pad;
+ const X=t=>P.l+(t1===t0?0.5:(t-t0)/(t1-t0))*(W-P.l-P.r),Y=v=>P.t+(1-(v-y0)/(y1-y0))*(H-P.t-P.b);
+ let g='';
+ for(let i=0;i<=3;i++){const v=y0+(y1-y0)*i/3;g+=`<line x1="${P.l}" x2="${W-P.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="#262D3A"/><text x="${P.l-8}" y="${Y(v)+4}" fill="#A3ACBA" font-size="11" text-anchor="end" font-family="Inter">${Math.round(v).toLocaleString('pt-BR')}</text>`}
+ LOJAS.forEach(L=>{const s=pts.filter(p=>p.loja===L.id).sort((a,b)=>a.t-b.t);if(!s.length)return;
+  g+=`<polyline fill="none" stroke="${COR[L.id]}" stroke-width="2.5" stroke-linejoin="round" points="${s.map(p=>X(+p.t)+','+Y(p.pix)).join(' ')}"/>`;
+  s.forEach(p=>{g+=`<circle cx="${X(+p.t)}" cy="${Y(p.pix)}" r="4.5" fill="${p.disponivel==='sim'?COR[L.id]:'#0E1117'}" stroke="${COR[L.id]}" stroke-width="2"><title>${L.nome} · ${p.t.toLocaleString('pt-BR')} · ${brl(p.pix)}${p.disponivel==='sim'?'':' (esgotado)'}</title></circle>`});
+  const de=s.filter(p=>p.de);if(de.length)g+=`<polyline fill="none" stroke="${COR[L.id]}" stroke-width="1.5" stroke-dasharray="4 4" opacity=".6" points="${de.map(p=>X(+p.t)+','+Y(p.de)).join(' ')}"/>`});
+ const f=d=>new Date(d).toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+ g+=`<text x="${P.l}" y="${H-8}" fill="#A3ACBA" font-size="11" font-family="Inter">${f(t0)}</text><text x="${W-P.r}" y="${H-8}" fill="#A3ACBA" font-size="11" text-anchor="end" font-family="Inter">${f(t1)}</text>`;
+ return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Histórico de preço por loja">${g}</svg>`;
+}
+
+function painel(){
+ const p=st.produtos.find(x=>x.id===st.sel)||st.produtos[0];const r=resumo(p.id);const s=selo(r);
+ const m=r&&r.melhor;const ref=m||(r&&r.ultimoVisto);
+ let fatos='';
+ if(m&&m.de&&m.de>m.pix){const anun=Math.round((1-m.pix/m.de)*100);fatos+=`<div class="fact">A loja anuncia <b>"De ${brl(m.de)}"</b>, ou ${anun}% de desconto.${r.maxHist&&m.de>r.maxHist*1.03?` Mas o maior preço que vimos foi <b>${brl(r.maxHist)}</b>: o "De" está acima do que realmente se cobrou.`:''}</div>`}
+ if(r&&r.minHist&&m){const dif=m.pix-r.minHist;fatos+=`<div class="fact">${dif>0.5?`Já esteve <b>${brl(dif)} mais barato</b> (${brl(r.minHist)}).`:`É o <b>menor preço</b> que registramos.`} Histórico desde ${r.ini.toLocaleDateString('pt-BR')}.</div>`}
+ if(!m&&ref)fatos+=`<div class="fact">Último preço visto: <b>${brl(ref.pix)}</b> na ${LOJAS.find(L=>L.id===ref.loja).nome}, hoje esgotado.</div>`;
+ const ativas=new Set(st.linhas.map(l=>l.loja));const lojas=LOJAS.map(L=>{const x=r&&r.agora[L.id];const ativa=ativas.has(L.id)&&p.lojas&&p.lojas[L.id];
+  if(!x)return `<div class="store"><span>${L.nome}</span><b>${ativa?'coletando':'em breve'}</b><span>&nbsp;</span></div>`;
+  return `<div class="store"><span>${L.nome}</span><b>${x.pix?brl(x.pix):'-'}</b>${x.disponivel==='sim'?`<a href="${x.url}" target="_blank" rel="sponsored nofollow noopener">Ver oferta →</a>`:'<span style="color:#FF8A8A">esgotado</span>'}</div>`}).join('');
+ document.getElementById('panel').innerHTML=`
+ <div class="top"><div><div class="kicker">${p.categoria} · ${p.plataforma}</div><h1>${p.nome}</h1></div><span class="pill ${s.c}">${s.t}</span></div>
+ <div class="top"><div><div class="price">${m?brl(m.pix):(ref?'Esgotado':'-')}</div><div class="where">${m?'menor preço no Pix agora, na '+LOJAS.find(L=>L.id===m.loja).nome:'nenhuma loja monitorada com estoque agora'}</div></div><div class="facts">${fatos}</div></div>
+ <div class="chart"><div id="cg"></div><div class="upd">Linha cheia: preço no Pix. Tracejada: o preço "De" anunciado. Bolinha vazia: esgotado.</div></div>
+ <div class="bottom"><div class="stores">${lojas}</div><div class="actions">${m?`<a class="btn" href="${m.url}" target="_blank" rel="sponsored nofollow noopener">Ver o menor preço</a>`:''}<button class="btn ghost" type="button" id="avise">Me avisa quando baixar</button><form class="alert" id="alerta" onsubmit="event.preventDefault();this.innerHTML='<span class=upd>Pronto! (em breve os alertas chegam no seu e-mail)</span>'"><label for="em" style="position:absolute;left:-9999px">Seu e-mail</label><input id="em" type="email" required placeholder="seu@email.com"><button class="btn" type="submit">Avisar</button></form></div></div>`;
+ const cg=document.getElementById('cg');if(r)cg.innerHTML=grafico(r,cg.clientWidth,cg.clientHeight);
+ document.getElementById('avise').onclick=()=>{document.getElementById('alerta').classList.add('on');document.getElementById('avise').style.display='none';document.getElementById('em').focus()};
+}
+let rz;window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{if(st.produtos.length)painel()},150)});
+carregar();
+</script>
+</body>
+</html>
