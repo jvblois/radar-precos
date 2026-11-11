@@ -6,6 +6,12 @@ on:
     - cron: "0 12 * * *"
     - cron: "0 0 * * *"
   workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - "coletor/**"
+      - "config/**"
+      - ".github/workflows/coleta.yml"
 
 permissions:
   contents: write
@@ -32,6 +38,7 @@ jobs:
         run: |
           git config user.name "radar-precos-bot"
           git config user.email "actions@users.noreply.github.com"
+          git pull --rebase --autostash origin main || true
           git add data/
           if git diff --cached --quiet; then
             echo "Nada novo para salvar."
