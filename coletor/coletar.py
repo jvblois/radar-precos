@@ -26,7 +26,7 @@ ULTIMO_PATH = os.path.join(RAIZ, "data", "ultimo.json")
 
 CAMPOS = [
     "data_hora", "produto_id", "produto", "loja", "preco_pix", "preco_cheio",
-    "disponivel", "vendedor", "titulo_encontrado", "url", "status", "fonte",
+    "disponivel", "vendedor", "titulo_encontrado", "url", "status", "fonte", "tipo_oferta",
 ]
 
 HEADERS = {
@@ -179,51 +179,107 @@ def coletar_kabum(cfg):
     return linha
 
 
-def coletar_mercadolivre(cfg):
-    q = urllib.parse.quote(cfg["busca"])
-    api = f"https://api.mercadolibre.com/sites/MLB/search?q={q}&condition=new&limit=50"
-    status, corpo = baixar(api)
-    linha = {"fonte": "mercadolivre-api", "url": api}
-    if status != 200:
-        linha["status"] = f"erro_http_{status}"
-        return linha
-    try:
-        resultados = json.loads(corpo).get("results", [])
-    except Exception:
-        linha["status"] = "erro_json"
-        return linha
-
+def filtrar(itens, cfg):
+    """itens: lista de dicts com 'titulo' e 'preco'. Aplica as regras do produto."""
     deve = [p.lower() for p in cfg.get("deve_conter", [])]
     nao = [p.lower() for p in cfg.get("nao_pode_conter", [])]
     minimo = cfg.get("min_preco", 0)
-    candidatos = []
-    for r in resultados:
-        titulo = (r.get("title") or "").lower()
-        preco = r.get("price")
-        if not preco or preco < minimo:
+    ok = []
+    for it in itens:
+        t = (it.get("titulo") or "").lower()
+        if not it.get("preco") or it["preco"] < minimo:
             continue
-        if any(p not in titulo for p in deve) or any(p in titulo for p in nao):
+        if any(p not in t for p in deve) or any(p in t for p in nao):
             continue
-        candidatos.append(r)
-    if not candidatos:
-        linha["status"] = "nenhum_resultado_valido"
-        return linha
-    melhor = min(candidatos, key=lambda r: r["price"])
-    linha.update({
-        "preco_pix": float(melhor["price"]),
-        "preco_cheio": float(melhor["original_price"]) if melhor.get("original_price") else None,
-        "disponivel": "sim",
-        "vendedor": "loja oficial" if melhor.get("official_store_id") else "vendedor comum",
-        "titulo_encontrado": melhor.get("title", ""),
-        "url": melhor.get("permalink", api),
-        "status": "ok",
-    })
-    return linha
+        ok.append(it)
+    return ok
+
+
+def duas_ofertas(candidatos, base, eh_da_loja):
+    """Devolve até duas linhas: a melhor oferta da própria loja/loja oficial e a melhor de qualquer vendedor."""
+    linhas = []
+    proprios = [c for c in candidatos if eh_da_loja(c)]
+    for tipo, grupo in (("loja", proprios), ("qualquer_vendedor", candidatos)):
+        if not grupo:
+            linhas.append({**base, "tipo_oferta": tipo, "status": "nenhum_resultado_valido"})
+            continue
+        m = min(grupo, key=lambda c: c["preco"])
+        linhas.append({**base, "tipo_oferta": tipo, "preco_pix": m["preco"], "preco_cheio": m.get("cheio"),
+                       "disponivel": "sim", "vendedor": m.get("vendedor", ""),
+                       "titulo_encontrado": m.get("titulo", ""), "url": m.get("url") or base.get("url"),
+                       "status": "ok"})
+    return linhas
+
+
+def coletar_mercadolivre(cfg):
+    q = urllib.parse.quote(cfg["busca"])
+    api = f"https://api.mercadolibre.com/sites/MLB/search?q={q}&condition=new&limit=50"
+    base = {"fonte": "mercadolivre-api", "url": api}
+    status, corpo = baixar(api)
+    if status != 200:
+        return [{**base, "status": f"erro_http_{status}"}]
+    try:
+        resultados = json.loads(corpo).get("results", [])
+    except Exception:
+        return [{**base, "status": "erro_json"}]
+    itens = [{"titulo": r.get("title", ""), "preco": float(r["price"]) if r.get("price") else None,
+              "cheio": float(r["original_price"]) if r.get("original_price") else None,
+              "url": r.get("permalink"), "oficial": bool(r.get("official_store_id")),
+              "vendedor": "loja oficial" if r.get("official_store_id") else "vendedor comum"} for r in resultados]
+    return duas_ofertas(filtrar(itens, cfg), base, lambda c: c["oficial"])
+
+
+def numero(v):
+    if isinstance(v, dict):
+        for k in ("bestPrice", "price", "value", "fullPrice"):
+            if k in v:
+                return numero(v[k])
+        return None
+    return brl(v)
+
+
+def coletar_magalu(cfg):
+    q = urllib.parse.quote(cfg["busca"])
+    url = f"https://www.magazineluiza.com.br/busca/{q}/"
+    base = {"fonte": "magalu-busca", "url": url}
+    status, html = baixar(url)
+    if status != 200 or not html:
+        return [{**base, "status": f"erro_http_{status}"}]
+    m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', html, re.S)
+    if not m:
+        return [{**base, "status": "sem_dados_na_pagina"}]
+    dados = json.loads(m.group(1))
+    achados = []
+
+    def andar(o):
+        if isinstance(o, dict):
+            if "title" in o and "price" in o:
+                preco = o.get("price")
+                pix = numero(preco.get("bestPrice")) if isinstance(preco, dict) and "bestPrice" in preco else numero(preco)
+                cheio = numero(preco.get("fullPrice")) if isinstance(preco, dict) and "fullPrice" in preco else None
+                seller = o.get("seller") or {}
+                vend = (seller.get("description") or seller.get("id") or "") if isinstance(seller, dict) else str(seller)
+                path = o.get("url") or o.get("path") or ""
+                achados.append({"titulo": o.get("title", ""), "preco": pix, "cheio": cheio, "vendedor": vend,
+                                "url": ("https://www.magazineluiza.com.br/" + path.lstrip("/")) if path and not path.startswith("http") else (path or url)})
+            for v in o.values():
+                andar(v)
+        elif isinstance(o, list):
+            for v in o:
+                andar(v)
+
+    andar(dados)
+    if not achados:
+        print(f"[magalu] nenhum produto reconhecido em {url}; chaves do topo: {list(dados.get('props', {}).keys())[:10]}")
+        return [{**base, "status": "formato_desconhecido"}]
+    eh_magalu = lambda c: "magazine" in (c.get("vendedor") or "").lower() or (c.get("vendedor") or "").lower() == "magalu"
+    return duas_ofertas(filtrar(achados, cfg), base, eh_magalu)
 
 
 COLETORES = {
     "kabum": coletar_kabum,
     "mercadolivre": coletar_mercadolivre,
+    "magalu": coletar_magalu,
 }
 
 
@@ -242,8 +298,9 @@ def main():
                 r = coletor(cfg)
             except Exception as e:
                 r = {"status": f"erro_{type(e).__name__}"}
-            r.update({"data_hora": agora, "produto_id": p["id"], "produto": p["nome"], "loja": loja})
-            linhas.append(r)
+            for item in (r if isinstance(r, list) else [{**r, "tipo_oferta": "loja"}]):
+                item.update({"data_hora": agora, "produto_id": p["id"], "produto": p["nome"], "loja": loja})
+                linhas.append(item)
             time.sleep(2)  # educado com as lojas
 
     novo = not os.path.exists(CSV_PATH)
@@ -258,10 +315,10 @@ def main():
         json.dump({"atualizado_em": agora, "linhas": linhas}, f, ensure_ascii=False, indent=1)
 
     # resumo para o log do GitHub
-    resumo = ["| Produto | Loja | Pix | Status |", "| --- | --- | --- | --- |"]
+    resumo = ["| Produto | Loja | Oferta | Pix | Vendedor | Status |", "| --- | --- | --- | --- | --- | --- |"]
     for l in linhas:
         preco = f"R$ {l['preco_pix']:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") if l.get("preco_pix") else "-"
-        resumo.append(f"| {l['produto']} | {l['loja']} | {preco} | {l.get('status')} |")
+        resumo.append(f"| {l['produto']} | {l['loja']} | {l.get('tipo_oferta','')} | {preco} | {l.get('vendedor','')} | {l.get('status')} |")
     texto = "\n".join(resumo)
     print(texto)
     if os.environ.get("GITHUB_STEP_SUMMARY"):

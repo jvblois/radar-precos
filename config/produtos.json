@@ -7,8 +7,39 @@
       "categoria": "Console",
       "plataforma": "PS5",
       "lojas": {
-        "kabum": {"codigo": "904276"},
-        "mercadolivre": {"busca": "console playstation 5 slim digital", "deve_conter": ["playstation", "5", "digital"], "nao_pode_conter": ["capa", "suporte", "controle avulso", "usado"], "min_preco": 2500}
+        "kabum": {
+          "codigo": "904276"
+        },
+        "mercadolivre": {
+          "busca": "console playstation 5 slim digital",
+          "deve_conter": [
+            "playstation",
+            "5",
+            "digital"
+          ],
+          "nao_pode_conter": [
+            "capa",
+            "suporte",
+            "controle avulso",
+            "usado"
+          ],
+          "min_preco": 2500
+        },
+        "magalu": {
+          "busca": "console playstation 5 slim digital",
+          "deve_conter": [
+            "playstation",
+            "5",
+            "digital"
+          ],
+          "nao_pode_conter": [
+            "capa",
+            "suporte",
+            "controle avulso",
+            "usado"
+          ],
+          "min_preco": 2500
+        }
       }
     },
     {
@@ -17,7 +48,37 @@
       "categoria": "Console",
       "plataforma": "PS5",
       "lojas": {
-        "kabum": {"codigo": "922662"}
+        "kabum": {
+          "codigo": "922662"
+        },
+        "mercadolivre": {
+          "busca": "playstation 5 digital astro bot gran turismo",
+          "deve_conter": [
+            "astro",
+            "gran turismo"
+          ],
+          "nao_pode_conter": [
+            "usado",
+            "disk",
+            "disco",
+            "leitor"
+          ],
+          "min_preco": 2500
+        },
+        "magalu": {
+          "busca": "playstation 5 digital astro bot gran turismo",
+          "deve_conter": [
+            "astro",
+            "gran turismo"
+          ],
+          "nao_pode_conter": [
+            "usado",
+            "disk",
+            "disco",
+            "leitor"
+          ],
+          "min_preco": 2500
+        }
       }
     },
     {
@@ -26,8 +87,39 @@
       "categoria": "Console",
       "plataforma": "PS5",
       "lojas": {
-        "kabum": {"codigo": "875817"},
-        "mercadolivre": {"busca": "console playstation 5 slim disco 1tb", "deve_conter": ["playstation", "5"], "nao_pode_conter": ["digital", "capa", "suporte", "usado", "leitor de disco avulso"], "min_preco": 3000}
+        "kabum": {
+          "codigo": "875817"
+        },
+        "mercadolivre": {
+          "busca": "console playstation 5 slim disco 1tb",
+          "deve_conter": [
+            "playstation",
+            "5"
+          ],
+          "nao_pode_conter": [
+            "digital",
+            "capa",
+            "suporte",
+            "usado",
+            "leitor de disco avulso"
+          ],
+          "min_preco": 3000
+        },
+        "magalu": {
+          "busca": "console playstation 5 slim disco 1tb",
+          "deve_conter": [
+            "playstation",
+            "5"
+          ],
+          "nao_pode_conter": [
+            "digital",
+            "capa",
+            "suporte",
+            "usado",
+            "leitor de disco avulso"
+          ],
+          "min_preco": 3000
+        }
       }
     },
     {
@@ -36,7 +128,33 @@
       "categoria": "Console",
       "plataforma": "PS5",
       "lojas": {
-        "kabum": {"codigo": "934759"}
+        "kabum": {
+          "codigo": "934759"
+        },
+        "mercadolivre": {
+          "busca": "playstation 5 disco 1tb astro bot gran turismo",
+          "deve_conter": [
+            "astro",
+            "gran turismo"
+          ],
+          "nao_pode_conter": [
+            "usado",
+            "digital"
+          ],
+          "min_preco": 3000
+        },
+        "magalu": {
+          "busca": "playstation 5 disco 1tb astro bot gran turismo",
+          "deve_conter": [
+            "astro",
+            "gran turismo"
+          ],
+          "nao_pode_conter": [
+            "usado",
+            "digital"
+          ],
+          "min_preco": 3000
+        }
       }
     },
     {
@@ -45,8 +163,35 @@
       "categoria": "Console",
       "plataforma": "PS5",
       "lojas": {
-        "kabum": {"codigo": "636960"},
-        "mercadolivre": {"busca": "console playstation 5 pro 2tb", "deve_conter": ["pro"], "nao_pode_conter": ["capa", "suporte", "usado", "controle"], "min_preco": 5000}
+        "kabum": {
+          "codigo": "636960"
+        },
+        "mercadolivre": {
+          "busca": "console playstation 5 pro 2tb",
+          "deve_conter": [
+            "pro"
+          ],
+          "nao_pode_conter": [
+            "capa",
+            "suporte",
+            "usado",
+            "controle"
+          ],
+          "min_preco": 5000
+        },
+        "magalu": {
+          "busca": "console playstation 5 pro 2tb",
+          "deve_conter": [
+            "pro"
+          ],
+          "nao_pode_conter": [
+            "capa",
+            "suporte",
+            "usado",
+            "controle"
+          ],
+          "min_preco": 5000
+        }
       }
     },
     {
@@ -55,8 +200,35 @@
       "categoria": "Console",
       "plataforma": "Xbox",
       "lojas": {
-        "kabum": {"codigo": "531252"},
-        "mercadolivre": {"busca": "console xbox series s", "deve_conter": ["series s"], "nao_pode_conter": ["capa", "suporte", "usado", "controle"], "min_preco": 1800}
+        "kabum": {
+          "codigo": "531252"
+        },
+        "mercadolivre": {
+          "busca": "console xbox series s",
+          "deve_conter": [
+            "series s"
+          ],
+          "nao_pode_conter": [
+            "capa",
+            "suporte",
+            "usado",
+            "controle"
+          ],
+          "min_preco": 1800
+        },
+        "magalu": {
+          "busca": "console xbox series s",
+          "deve_conter": [
+            "series s"
+          ],
+          "nao_pode_conter": [
+            "capa",
+            "suporte",
+            "usado",
+            "controle"
+          ],
+          "min_preco": 1800
+        }
       }
     },
     {
@@ -65,8 +237,35 @@
       "categoria": "Console",
       "plataforma": "Xbox",
       "lojas": {
-        "kabum": {"codigo": "209239"},
-        "mercadolivre": {"busca": "console xbox series x 1tb", "deve_conter": ["series x"], "nao_pode_conter": ["capa", "suporte", "usado", "controle"], "min_preco": 3000}
+        "kabum": {
+          "codigo": "209239"
+        },
+        "mercadolivre": {
+          "busca": "console xbox series x 1tb",
+          "deve_conter": [
+            "series x"
+          ],
+          "nao_pode_conter": [
+            "capa",
+            "suporte",
+            "usado",
+            "controle"
+          ],
+          "min_preco": 3000
+        },
+        "magalu": {
+          "busca": "console xbox series x 1tb",
+          "deve_conter": [
+            "series x"
+          ],
+          "nao_pode_conter": [
+            "capa",
+            "suporte",
+            "usado",
+            "controle"
+          ],
+          "min_preco": 3000
+        }
       }
     },
     {
@@ -75,7 +274,36 @@
       "categoria": "Jogo",
       "plataforma": "PS5",
       "lojas": {
-        "mercadolivre": {"busca": "grand theft auto vi ps5", "deve_conter": ["vi", "ps5"], "nao_pode_conter": ["ultimate", "camiseta", "poster", "mapa", "guia"], "min_preco": 300}
+        "mercadolivre": {
+          "busca": "grand theft auto vi ps5",
+          "deve_conter": [
+            "vi",
+            "ps5"
+          ],
+          "nao_pode_conter": [
+            "ultimate",
+            "camiseta",
+            "poster",
+            "mapa",
+            "guia"
+          ],
+          "min_preco": 300
+        },
+        "magalu": {
+          "busca": "grand theft auto vi ps5",
+          "deve_conter": [
+            "vi",
+            "ps5"
+          ],
+          "nao_pode_conter": [
+            "ultimate",
+            "camiseta",
+            "poster",
+            "mapa",
+            "guia"
+          ],
+          "min_preco": 300
+        }
       }
     },
     {
@@ -84,8 +312,39 @@
       "categoria": "Acessório",
       "plataforma": "PS5",
       "lojas": {
-        "kabum": {"codigo": "945713"},
-        "mercadolivre": {"busca": "controle dualsense ps5 sony original", "deve_conter": ["dualsense"], "nao_pode_conter": ["edge", "capa", "case", "carregador", "usado", "skin"], "min_preco": 250}
+        "kabum": {
+          "codigo": "945713"
+        },
+        "mercadolivre": {
+          "busca": "controle dualsense ps5 sony original",
+          "deve_conter": [
+            "dualsense"
+          ],
+          "nao_pode_conter": [
+            "edge",
+            "capa",
+            "case",
+            "carregador",
+            "usado",
+            "skin"
+          ],
+          "min_preco": 250
+        },
+        "magalu": {
+          "busca": "controle dualsense ps5 sony original",
+          "deve_conter": [
+            "dualsense"
+          ],
+          "nao_pode_conter": [
+            "edge",
+            "capa",
+            "case",
+            "carregador",
+            "usado",
+            "skin"
+          ],
+          "min_preco": 250
+        }
       }
     },
     {
@@ -94,8 +353,33 @@
       "categoria": "Acessório",
       "plataforma": "PS5",
       "lojas": {
-        "kabum": {"codigo": "536999"},
-        "mercadolivre": {"busca": "headset sony pulse elite", "deve_conter": ["pulse elite"], "nao_pode_conter": ["capa", "suporte", "usado"], "min_preco": 500}
+        "kabum": {
+          "codigo": "536999"
+        },
+        "mercadolivre": {
+          "busca": "headset sony pulse elite",
+          "deve_conter": [
+            "pulse elite"
+          ],
+          "nao_pode_conter": [
+            "capa",
+            "suporte",
+            "usado"
+          ],
+          "min_preco": 500
+        },
+        "magalu": {
+          "busca": "headset sony pulse elite",
+          "deve_conter": [
+            "pulse elite"
+          ],
+          "nao_pode_conter": [
+            "capa",
+            "suporte",
+            "usado"
+          ],
+          "min_preco": 500
+        }
       }
     }
   ]
