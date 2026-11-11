@@ -1,0 +1,320 @@
+{
+ "atualizado_em": "2026-11-11 00:30",
+ "linhas": [
+  {
+   "url": "https://www.kabum.com.br/produto/904276",
+   "fonte": "kabum-pagina",
+   "titulo_encontrado": "Console Sony PlayStation 5 Slim, Edição Digital, SSD 1TB, Controle Sem Fio DualSense + 2 Jogos Digitais",
+   "vendedor": "KaBuM!",
+   "preco_pix": 3533.07,
+   "preco_cheio": 3799.0,
+   "disponivel": "nao",
+   "status": "esgotado",
+   "tipo_oferta": "loja",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-slim-digital",
+   "produto": "PS5 Slim Digital",
+   "loja": "kabum"
+  },
+  {
+   "fonte": "mercadolivre-api",
+   "url": "https://api.mercadolibre.com/sites/MLB/search?q=console%20playstation%205%20slim%20digital&condition=new&limit=50",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-slim-digital",
+   "produto": "PS5 Slim Digital",
+   "loja": "mercadolivre"
+  },
+  {
+   "fonte": "magalu-busca",
+   "url": "https://www.magazineluiza.com.br/busca/console%20playstation%205%20slim%20digital/",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-slim-digital",
+   "produto": "PS5 Slim Digital",
+   "loja": "magalu"
+  },
+  {
+   "url": "https://www.kabum.com.br/produto/922662",
+   "fonte": "kabum-pagina",
+   "titulo_encontrado": "Console Sony PlayStation 5, Edição Digital, SSD 825GB, Controle Sem Fio DualSense + 2 Jogos Digitais - 1000050614",
+   "vendedor": "KaBuM!",
+   "preco_pix": 3799.0,
+   "preco_cheio": 4084.95,
+   "disponivel": "nao",
+   "status": "esgotado",
+   "tipo_oferta": "loja",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-digital-825-astro-gt7",
+   "produto": "PS5 Digital 825GB + Astro Bot e GT7",
+   "loja": "kabum"
+  },
+  {
+   "fonte": "mercadolivre-api",
+   "url": "https://api.mercadolibre.com/sites/MLB/search?q=playstation%205%20digital%20astro%20bot%20gran%20turismo&condition=new&limit=50",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-digital-825-astro-gt7",
+   "produto": "PS5 Digital 825GB + Astro Bot e GT7",
+   "loja": "mercadolivre"
+  },
+  {
+   "fonte": "magalu-busca",
+   "url": "https://www.magazineluiza.com.br/busca/playstation%205%20digital%20astro%20bot%20gran%20turismo/",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-digital-825-astro-gt7",
+   "produto": "PS5 Digital 825GB + Astro Bot e GT7",
+   "loja": "magalu"
+  },
+  {
+   "url": "https://www.kabum.com.br/produto/875817",
+   "fonte": "kabum-pagina",
+   "titulo_encontrado": "Console Sony PlayStation 5 Slim, Com Leitor de Discos, SSD 1TB, Controle Sem Fio DualSense + 2 Jogos - 1000038858",
+   "vendedor": "KaBuM!",
+   "preco_pix": 3626.07,
+   "preco_cheio": 4028.97,
+   "disponivel": "nao",
+   "status": "esgotado",
+   "tipo_oferta": "loja",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-slim-disco",
+   "produto": "PS5 Slim com disco 1TB",
+   "loja": "kabum"
+  },
+  {
+   "fonte": "mercadolivre-api",
+   "url": "https://api.mercadolibre.com/sites/MLB/search?q=console%20playstation%205%20slim%20disco%201tb&condition=new&limit=50",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-slim-disco",
+   "produto": "PS5 Slim com disco 1TB",
+   "loja": "mercadolivre"
+  },
+  {
+   "fonte": "magalu-busca",
+   "url": "https://www.magazineluiza.com.br/busca/console%20playstation%205%20slim%20disco%201tb/",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-slim-disco",
+   "produto": "PS5 Slim com disco 1TB",
+   "loja": "magalu"
+  },
+  {
+   "url": "https://www.kabum.com.br/produto/934759",
+   "fonte": "kabum-pagina",
+   "titulo_encontrado": "Console Sony PlayStation 5, Com Leitor de Discos, SSD 1TB, Controle Sem Fio DualSense + 2 Jogos",
+   "vendedor": "KaBuM!",
+   "preco_pix": 4742.07,
+   "preco_cheio": 5099.0,
+   "disponivel": "sim",
+   "status": "ok",
+   "tipo_oferta": "loja",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-disco-astro-gt7",
+   "produto": "PS5 com disco 1TB + Astro Bot e GT7",
+   "loja": "kabum"
+  },
+  {
+   "fonte": "mercadolivre-api",
+   "url": "https://api.mercadolibre.com/sites/MLB/search?q=playstation%205%20disco%201tb%20astro%20bot%20gran%20turismo&condition=new&limit=50",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-disco-astro-gt7",
+   "produto": "PS5 com disco 1TB + Astro Bot e GT7",
+   "loja": "mercadolivre"
+  },
+  {
+   "fonte": "magalu-busca",
+   "url": "https://www.magazineluiza.com.br/busca/playstation%205%20disco%201tb%20astro%20bot%20gran%20turismo/",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-disco-astro-gt7",
+   "produto": "PS5 com disco 1TB + Astro Bot e GT7",
+   "loja": "magalu"
+  },
+  {
+   "url": "https://www.kabum.com.br/produto/636960",
+   "fonte": "kabum-pagina",
+   "titulo_encontrado": "Console PlayStation 5 Pro Sony, SSD 2TB, Com Controle Sem Fio DualSense, Branco - 1000046552",
+   "vendedor": "KaBuM!",
+   "preco_pix": 7399.0,
+   "preco_cheio": 7399.0,
+   "disponivel": "sim",
+   "status": "ok",
+   "tipo_oferta": "loja",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-pro",
+   "produto": "PS5 Pro 2TB",
+   "loja": "kabum"
+  },
+  {
+   "fonte": "mercadolivre-api",
+   "url": "https://api.mercadolibre.com/sites/MLB/search?q=console%20playstation%205%20pro%202tb&condition=new&limit=50",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-pro",
+   "produto": "PS5 Pro 2TB",
+   "loja": "mercadolivre"
+  },
+  {
+   "fonte": "magalu-busca",
+   "url": "https://www.magazineluiza.com.br/busca/console%20playstation%205%20pro%202tb/",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "ps5-pro",
+   "produto": "PS5 Pro 2TB",
+   "loja": "magalu"
+  },
+  {
+   "url": "https://www.kabum.com.br/produto/531252",
+   "fonte": "kabum-pagina",
+   "titulo_encontrado": "Console Xbox One Series S 1Tb - Preto",
+   "vendedor": "VIIA SOLUTIONS",
+   "preco_pix": 4799.99,
+   "preco_cheio": 4799.99,
+   "disponivel": "nao",
+   "status": "esgotado",
+   "tipo_oferta": "loja",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "xbox-series-s",
+   "produto": "Xbox Series S",
+   "loja": "kabum"
+  },
+  {
+   "fonte": "mercadolivre-api",
+   "url": "https://api.mercadolibre.com/sites/MLB/search?q=console%20xbox%20series%20s&condition=new&limit=50",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "xbox-series-s",
+   "produto": "Xbox Series S",
+   "loja": "mercadolivre"
+  },
+  {
+   "fonte": "magalu-busca",
+   "url": "https://www.magazineluiza.com.br/busca/console%20xbox%20series%20s/",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "xbox-series-s",
+   "produto": "Xbox Series S",
+   "loja": "magalu"
+  },
+  {
+   "url": "https://www.kabum.com.br/produto/209239",
+   "fonte": "kabum-pagina",
+   "titulo_encontrado": "Console Xbox Series X, Microsoft, 1Tb, Controle Sem Fio - Preto",
+   "vendedor": "VIIA SOLUTIONS",
+   "preco_pix": 7499.99,
+   "preco_cheio": 7499.99,
+   "disponivel": "nao",
+   "status": "esgotado",
+   "tipo_oferta": "loja",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "xbox-series-x",
+   "produto": "Xbox Series X",
+   "loja": "kabum"
+  },
+  {
+   "fonte": "mercadolivre-api",
+   "url": "https://api.mercadolibre.com/sites/MLB/search?q=console%20xbox%20series%20x%201tb&condition=new&limit=50",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "xbox-series-x",
+   "produto": "Xbox Series X",
+   "loja": "mercadolivre"
+  },
+  {
+   "fonte": "magalu-busca",
+   "url": "https://www.magazineluiza.com.br/busca/console%20xbox%20series%20x%201tb/",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "xbox-series-x",
+   "produto": "Xbox Series X",
+   "loja": "magalu"
+  },
+  {
+   "fonte": "mercadolivre-api",
+   "url": "https://api.mercadolibre.com/sites/MLB/search?q=grand%20theft%20auto%20vi%20ps5&condition=new&limit=50",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "gta6-ps5-standard",
+   "produto": "GTA 6 Standard PS5",
+   "loja": "mercadolivre"
+  },
+  {
+   "fonte": "magalu-busca",
+   "url": "https://www.magazineluiza.com.br/busca/grand%20theft%20auto%20vi%20ps5/",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "gta6-ps5-standard",
+   "produto": "GTA 6 Standard PS5",
+   "loja": "magalu"
+  },
+  {
+   "url": "https://www.kabum.com.br/produto/945713",
+   "fonte": "kabum-pagina",
+   "titulo_encontrado": "Controle Sony DualSense PS5, Sem Fio, Midnight Black",
+   "vendedor": "KaBuM!",
+   "preco_pix": 429.9,
+   "preco_cheio": 488.52,
+   "disponivel": "nao",
+   "status": "esgotado",
+   "tipo_oferta": "loja",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "dualsense",
+   "produto": "Controle DualSense",
+   "loja": "kabum"
+  },
+  {
+   "fonte": "mercadolivre-api",
+   "url": "https://api.mercadolibre.com/sites/MLB/search?q=controle%20dualsense%20ps5%20sony%20original&condition=new&limit=50",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "dualsense",
+   "produto": "Controle DualSense",
+   "loja": "mercadolivre"
+  },
+  {
+   "fonte": "magalu-busca",
+   "url": "https://www.magazineluiza.com.br/busca/controle%20dualsense%20ps5%20sony%20original/",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "dualsense",
+   "produto": "Controle DualSense",
+   "loja": "magalu"
+  },
+  {
+   "url": "https://www.kabum.com.br/produto/536999",
+   "fonte": "kabum-pagina",
+   "titulo_encontrado": "Headset sem fio Gamer Sony Pulse Elite, Bluetooth, PS5, Branco - CFI-ZWH2L",
+   "vendedor": "KaBuM!",
+   "preco_pix": 929.07,
+   "preco_cheio": 999.0,
+   "disponivel": "sim",
+   "status": "ok",
+   "tipo_oferta": "loja",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "pulse-elite",
+   "produto": "Headset Pulse Elite",
+   "loja": "kabum"
+  },
+  {
+   "fonte": "mercadolivre-api",
+   "url": "https://api.mercadolibre.com/sites/MLB/search?q=headset%20sony%20pulse%20elite&condition=new&limit=50",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "pulse-elite",
+   "produto": "Headset Pulse Elite",
+   "loja": "mercadolivre"
+  },
+  {
+   "fonte": "magalu-busca",
+   "url": "https://www.magazineluiza.com.br/busca/headset%20sony%20pulse%20elite/",
+   "status": "erro_http_403",
+   "data_hora": "2026-11-11 00:30",
+   "produto_id": "pulse-elite",
+   "produto": "Headset Pulse Elite",
+   "loja": "magalu"
+  }
+ ]
+}
